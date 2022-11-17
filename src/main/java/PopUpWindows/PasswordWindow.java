@@ -65,7 +65,7 @@ public class PasswordWindow extends BasePage {
     }
 
     public boolean isEnteredPassVisible(String password) {
-        return sameValue(PASS_INPUT, "Qwerty");
+        return sameValue(PASS_INPUT, password);
 
     }
 }

@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
     private static final String INTRO_BANNER = "//*[@class = 'intro-banner dark-overlay big-padding']";
-   // private static final String GET_STARTED_BUTTON = "//*[@class='button ripple-effect home-index-login input-user-type-biz popup-with-zoom-anim']";
     private static final String TEXT_CONTENT = "//*[@class='text-content']";
     private static final String LEARN_MORE_BUTTON = "//*[@class='col-6 text-right']//descendant::*[@class='button ripple-effect']";
 
