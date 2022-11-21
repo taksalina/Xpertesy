@@ -1,6 +1,5 @@
 package Pages;
 
-import Constants.Const;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -9,7 +8,7 @@ private static final String LEARN_MORE_PAGE_URL = "https://xpertesy.com/biz/inde
     private static final String LEARN_MORE_HEADER = "//*[@class='pt-0 pb-lg-0']//descendant::*[@class='item-description-headline main-page-title-side']";
     private static final String YOUR_EMAIL_ADDRESS_HEADER = "//*[text()= 'Your email address']";
     private static final String YOUR_EMAIL_ADDRESS_WINDOW_TAB_CONTENT = "//*[@class='popup-tab-content']";
-    private static final String PAGE_UP_BUTTON = "//*[@id='backtotop'] [@class='visible']";
+    private static final String PAGE_UP_BUTTON =  "//*[@class='visible']//descendant::*[@href='#']";
     private static final String GET_STARTED_BUTTON = "//*[@class='col-xl-12']//descendant::*[@class='popup-with-zoom-anim button ripple-effect margin-top-20']";
     private static final String SIGN_UP_BUTTON = "//*[@class='right-side']//descendant::*[@class = 'popup-with-zoom-anim button ripple-effect margin-left-5 margin-top-20 main-header-login-signup']";
     private static final String LOG_IN_BUTTON = "//*[@class='header-widget main-header-login border-left-0']//descendant::*[@class='activate-button']";
@@ -31,6 +30,7 @@ private static final String LEARN_MORE_PAGE_URL = "https://xpertesy.com/biz/inde
         return elementExist(YOUR_EMAIL_ADDRESS_HEADER);
     }
 public void clickOnPageUpButton(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(PAGE_UP_BUTTON)));
         clickElementByXpath(PAGE_UP_BUTTON);
 }
 public void clickOnSignUpButton(){

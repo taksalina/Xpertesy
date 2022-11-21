@@ -15,5 +15,5 @@ public class GmailPage extends BasePage {
     }
 
 
-    }
+}
 

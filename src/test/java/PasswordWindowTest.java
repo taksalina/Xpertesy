@@ -1,4 +1,5 @@
 
+import Constants.Const;
 import Pages.HomePage;
 import Pages.UserAccountPage;
 import PopUpWindows.ForgotPassWindow;
@@ -41,9 +42,9 @@ public class PasswordWindowTest extends UseCaseBase {
     public void logInUserAcc() {
         logger.info("sign in user account");
         homePage.clickOnGetStartedButton();
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
-        passwordWindow.loginPassInput("Qwerty12345");
+        passwordWindow.loginPassInput(Const.USER_PASSWORD);
         passwordWindow.clickOnLogInButton();
         Boolean success = userAccountPage.isUserAccOpened();
         assertTrue(success);
@@ -54,7 +55,7 @@ public class PasswordWindowTest extends UseCaseBase {
     public void openForgotPasswordWindowTest() {
         logger.info("open forgot pass window test");
         homePage.clickOnGetStartedButton();
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.clickOnForgotPassword();
         Boolean isOpened = forgotPassWindow.isForgotPasswordWindowOpened();
@@ -66,7 +67,7 @@ public class PasswordWindowTest extends UseCaseBase {
     public void showEnteredPass(){
         logger.info("show entered password");
         homePage.clickOnGetStartedButton();
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.clickOnEyeIcon();
         Boolean isVisible = passwordWindow.isEnteredPassVisible("Qwerty");
@@ -79,7 +80,7 @@ public class PasswordWindowTest extends UseCaseBase {
     public void incorrectPassTest() {
         logger.info("enter incorrect password");
         homePage.clickOnGetStartedButton();
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.enterPassword("DFGHU&");
         passwordWindow.clickOnLogInButton();
@@ -92,7 +93,7 @@ public class PasswordWindowTest extends UseCaseBase {
     public void closeIncorrectPassErr() {
         homePage.clickOnGetStartedButton();
         logger.info("enter incorrect password");
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.enterPassword("DFGHU&");
         passwordWindow.clickOnLogInButton();
@@ -103,7 +104,7 @@ public class PasswordWindowTest extends UseCaseBase {
     public void emptyPassfieldTest() {
         homePage.clickOnGetStartedButton();
         logger.info("enter incorrect password");
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.clickOnLogInButton();
         Boolean isVisible = passwordWindow.isFillOutThisFieldErrVisible();
@@ -115,7 +116,7 @@ public class PasswordWindowTest extends UseCaseBase {
     public void checkBoxRememberMeTest() {
         homePage.clickOnGetStartedButton();
         logger.info("open forgot pass window test");
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.clickOnRememberMeOption();
         Boolean isChecked = passwordWindow.isRememberMeBoxChecked();

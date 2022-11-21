@@ -1,3 +1,4 @@
+import Constants.Const;
 import Pages.GmailPage;
 import Pages.HomePage;
 import Pages.UserAccountPage;
@@ -10,7 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class YourEmailAddressWindowTest extends UseCaseBase {
@@ -41,9 +42,9 @@ public class YourEmailAddressWindowTest extends UseCaseBase {
     @Test
     public void logInUserAcc() {
         logger.info("sign in user account");
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
-        passwordWindow.loginPassInput("Qwerty12345");
+        passwordWindow.loginPassInput(Const.USER_PASSWORD);
         passwordWindow.clickOnLogInButton();
         Boolean success = userAccountPage.isUserAccOpened();
         assertTrue(success);
@@ -79,7 +80,7 @@ public class YourEmailAddressWindowTest extends UseCaseBase {
     @Test
     public void openPasswordWindow() {
         logger.info("open Password window");
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         Boolean isOpened = passwordWindow.isPasswordWindowOpened();
         assertTrue(isOpened);
