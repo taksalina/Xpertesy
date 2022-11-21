@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 public class BasePage {
     private static final Logger logger = LogManager.getLogger(BasePage.class);
@@ -78,7 +78,7 @@ public class BasePage {
         }
     }
 
-    protected boolean sameValue(String xpath,String password) {
+    protected boolean sameValue(String xpath, String password) {
         try {
             WebElement passwordElement = webDriver.findElement(By.xpath(xpath));
             passwordElement.sendKeys(password);
@@ -88,6 +88,23 @@ public class BasePage {
         } catch (Exception e) {
             return false;
         }
-
     }
+
+    protected void clickElementByLinkText(String linkText) {
+        logger.info("Clicking element with linkText" + linkText);
+        webDriver.findElement(By.linkText(linkText)).click();
+    }
+
+    protected boolean isPageReloaded(String linkText) {
+        boolean clicked;
+        try {
+            WebElement element = webDriver.findElement(By.linkText(linkText));
+            element.click();
+            clicked = true;
+        } catch (Exception e) {
+            clicked = false;
+        }
+        return clicked;
+    }
+
 }

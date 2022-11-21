@@ -13,8 +13,9 @@ public class UseCaseBase {
     public static void setUpMain() {
         page = new BasePage();
         webDriver = SharedDriver.getWebDriver(SharedDriver.Browser.CHROME);
-//        webDriver.getCurrentUrl();
+    //    webDriver.getCurrentUrl();
         page.setWebDriver(webDriver);
+
     }
 
     @AfterAll

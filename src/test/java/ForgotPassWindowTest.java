@@ -1,3 +1,4 @@
+import Constants.Const;
 import Pages.HomePage;
 import PopUpWindows.ForgotPassWindow;
 import PopUpWindows.PasswordWindow;
@@ -37,7 +38,7 @@ public class ForgotPassWindowTest extends UseCaseBase {
     @Test
     public void SendButtonTest() {
         logger.info("forgot password send message");
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.clickOnForgotPassword();
         forgotPassWindow.clickOnSendButton();
@@ -49,7 +50,7 @@ public class ForgotPassWindowTest extends UseCaseBase {
     @Test
     public void closeAlmostThereNotificationTest() {
         logger.info("close almost there notification");
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.clickOnForgotPassword();
         forgotPassWindow.clickOnSendButton();
@@ -62,7 +63,7 @@ public class ForgotPassWindowTest extends UseCaseBase {
     @Test
     public void backToLoginWindowTest() {
         logger.info("back to your email address window");
-        yourEmailAddressWindow.loginEmailInput("alinataksa.testing@gmail.com");
+        yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.clickOnForgotPassword();
         forgotPassWindow.clickOnBackToLoginButton();

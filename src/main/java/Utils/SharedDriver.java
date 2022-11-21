@@ -23,6 +23,8 @@ public class SharedDriver {
 
             case CHROME:
                 ChromeOptions options = new ChromeOptions();
+                options.addArguments("use-fake-device-for-media-stream");
+                options.addArguments("use-fake-ui-for-media-stream");
 //                options.addArguments("--no-sandbox");
 //                options.addArguments("--disable-dev-shm-usage");
               //  options.addArguments("--headless");
