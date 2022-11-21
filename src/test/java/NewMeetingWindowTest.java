@@ -37,49 +37,107 @@ public class NewMeetingWindowTest extends UseCaseBase {
 
     @BeforeEach
     public void beforeTest() {
-
         homePage.navigateToMainPage();
         homePage.clickOnGetStartedButton();
         yourEmailAddressWindow.loginEmailInput(Const.USER_EMAIL);
         yourEmailAddressWindow.clickOnContinueButton();
         passwordWindow.loginPassInput(Const.USER_PASSWORD);
         passwordWindow.clickOnLogInButton();
-
-    }
-
-    @Test
-    public void openNewMeetingOptionTest() {
-        logger.info("open NewMeeting option ");
         userAccountPage.clickOnNewMeetingButton();
-        Boolean isOpened = newMeetingWindow.isNewSessionWithWindowOpened();
-        assertTrue(isOpened);
-        userAccountPage.takeScreenshot("NewSessionWithWindow");
+
     }
 
     @Test
     public void startNewSessionWithMyConnectionUserWithoutConnectionTest() {
         logger.info("start a new session with my connection. User without connections");
-        userAccountPage.clickOnNewMeetingButton();
         newMeetingWindow.clickOnMyConnection();
         Boolean isOpened = newMeetingWindow.isYouHaveNoConnectionNotificationVisible();
         assertTrue(isOpened);
         userAccountPage.takeScreenshot("YouHaveNoConnectionWindow");
     }
 
-//    @Test
-//    public void startNewSessionWithMyConnectionUserWithConnectionTest() {
-//        logger.info("start a new session with my connection");
-//        userAccountPage.clickOnNewMeetingButton();
-//        newMeetingWindow.clickOnMyConnection();
-//        Boolean isVisible = newMeetingWindow.isAvatarIconVisible();
-//        assertTrue(isVisible);
-//        userAccountPage.takeScreenshot("ConnectionsWindow");
-//    }
+    @Test
+    public void startNewSessionWithMyConnectionUserWithConnectionTest() {
+        logger.info("start a new session with my connection");
+        newMeetingWindow.clickOnMyConnection();
+        Boolean isVisible = newMeetingWindow.isNextButtonVisible();
+        assertTrue(isVisible);
+        userAccountPage.takeScreenshot("NewSessionWindowMyConnection");
+    }
+
+    @Test
+    public void enterTitleTest() {
+        logger.info("enter meeting title");
+        newMeetingWindow.clickOnMyConnection();
+        newMeetingWindow.clickOnTitleField();
+        newMeetingWindow.enterTitle("Testing Session");
+        Boolean isEntered = newMeetingWindow.isTitleEntered("Testing Session");
+        assertTrue(isEntered);
+        newMeetingWindow.takeScreenshot("MeetingTitle");
+    }
+
+    @Test
+    public void chooseStartNowOptionTest() {
+        logger.info("choose start now option");
+        newMeetingWindow.clickOnMyConnection();
+        newMeetingWindow.clickOnNowOption();
+        Boolean isChosen = newMeetingWindow.isNowOptionChosen();
+        assertTrue(isChosen);
+        newMeetingWindow.takeScreenshot("StartNowOption");
+    }
+
+    @Test
+    public void chooseStartLaterOptionTest() {
+        logger.info("choose start later option");
+        newMeetingWindow.clickOnMyConnection();
+        newMeetingWindow.clickOnLaterOption();
+        Boolean isChosen = newMeetingWindow.isLaterOptionChosen();
+        assertTrue(isChosen);
+        newMeetingWindow.takeScreenshot("StartLaterOption");
+    }
+
+    @Test
+    public void chooseDateAndTimeTest() {
+        logger.info("choose date and time");
+        newMeetingWindow.clickOnMyConnection();
+        newMeetingWindow.clickOnLaterOption();
+        newMeetingWindow.clickOnDateField();
+        newMeetingWindow.chooseDate();
+        Boolean isChosen = newMeetingWindow.isDateChosen("29/11/2022");
+        assertTrue(isChosen);
+        newMeetingWindow.takeScreenshot("ChosenDateForMeeting");
+        newMeetingWindow.chooseTime("10:10");
+        Boolean isChosen1 = newMeetingWindow.isTimeChosen("10:10");
+        assertTrue(isChosen1);
+        newMeetingWindow.takeScreenshot("ChosenTimeForMeeting");
+    }
+
+    @Test
+    public void setMeetingWithConnection() throws Exception {
+        logger.info("select participants from connections");
+        newMeetingWindow.clickOnMyConnection();
+        newMeetingWindow.clickOnNowOption();
+        newMeetingWindow.clickOnConnections();
+        newMeetingWindow.selectParticipants();
+        newMeetingWindow.takeScreenshot("SelectedParticipantForMeeting");
+        newMeetingWindow.clickOnNextButton();
+        newMeetingWindow.takeScreenshot("YourSessionCreated");
+    }
+
+    @Test
+    public void setMeetingWithConnectionsGroup() throws Exception {
+        logger.info("select participants from connections");
+        newMeetingWindow.clickOnMyConnection();
+        newMeetingWindow.clickOnNowOption();
+        newMeetingWindow.clickOnConnections();
+        newMeetingWindow.clickOnConnectionGroup();
+        newMeetingWindow.selectConnectionGroup();
+        newMeetingWindow.clickOnNextButton();
+    }
 
     @Test
     public void startNewGuestSessionTest() {
         logger.info("start a new session with guest test");
-        userAccountPage.clickOnNewMeetingButton();
         newMeetingWindow.clickOnGuestOption();
         Boolean isOpened = newMeetingWindow.isNewSessionWithWindowOpened();
         assertTrue(isOpened);
@@ -88,22 +146,21 @@ public class NewMeetingWindowTest extends UseCaseBase {
 
     @Test
     public void closeNewSessionWindowTest() {
-        userAccountPage.clickOnNewMeetingButton();
-        newMeetingWindow.clickOnGuestOption();
         logger.info("close the New Session window test");
+        newMeetingWindow.clickOnGuestOption();
         newMeetingWindow.clickOnCloseButton();
         Boolean isClosed = dashboardPage.isDashboardHeaderVisible();
         assertTrue(isClosed);
     }
 
     @Test
-    public void BackButtonTest() {
-        userAccountPage.clickOnNewMeetingButton();
-        newMeetingWindow.clickOnGuestOption();
+    public void BackButtonNewSessionTest() {
         logger.info("Back button the New Session window test");
+        newMeetingWindow.clickOnGuestOption();
         newMeetingWindow.clickOnBackButton();
         Boolean isClosed = newMeetingWindow.isNewSessionWithWindowOpened();
         assertTrue(isClosed);
     }
+
 }
 

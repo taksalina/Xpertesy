@@ -1,30 +1,26 @@
 package Pages;
 
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 public class UserAccountPage extends BasePage {
-    private static final String ACCOUNT_ICON = "//img[@src ='images/user-avatar-placeholder.png']";
-    private static final String DASHBOARD_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/index/']";
-    private static final String MY_WORKSPACE_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/session-private.php']";
-    private static final String NEW_MEETING_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = '#start-session-dialog']";
-    private static final String PENDING_REQUESTS_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/pending-requests/']";
-    private static final String MY_CONNECTIONS_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/client-list/']";
-    private static final String CONNECTION_GROUP_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/connection-groups/']";
-    private static final String CALENDAR_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/calendar/']";
-    private static final String UPCOMING_SESSION_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/upcoming-sessions/']";
-    private static final String SETTINGS_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/settings/']";
-    private static final String BILLING_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/billing/']";
-    private static final String LOGOUT_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'helpers/logout.php']";
-    private static final String BUSINESS_PAGE_HEADER = "//*[@class='item-description']//descendant::*[@class='item-description-headline main-page-title-side']";
-    private static final String HOME_BUTTON = "Home";
-    private static final String PRICING_BUTTON = "//*[@class='left-side']//descendant::*[@href = '/dashboard/pricing-plans']";
-    private static final String CONTACT_US_BUTTON = "Contact Us";
-    private static final String NOTIFICATION_BUTTON = "//*[@class='header-notifications-trigger']//descendant::*[@class='icon-feather-bell']";
-    private static final String NOTIFICATION_WINDOW = "//*[@class='header-notifications-dropdown']//descendant::*[@class='header-notifications-headline']";
-    private static final String PERSON_ICON = "//img[@src= 'images/user-avatar-placeholder.png']";
-    private static final String XPERTESY_LOGO = "//*[@class='left-side']//descendant::*[@href='index']";
+    private static final String ACCOUNT_ICON = "//img[@src ='images/user-avatar-placeholder.png']",
+            DASHBOARD_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/index/']",
+            MY_WORKSPACE_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/session-private.php']",
+            NEW_MEETING_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = '#start-session-dialog']",
+            PENDING_REQUESTS_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/pending-requests/']",
+            MY_CONNECTIONS_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/client-list/']",
+            CONNECTION_GROUP_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/connection-groups/']",
+            CALENDAR_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/calendar/']",
+            UPCOMING_SESSION_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/upcoming-sessions/']",
+            SETTINGS_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/settings/']",
+            BILLING_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'dashboard/billing/']",
+            LOGOUT_OPTION = "//*[@class='dashboard-nav-inner']//descendant::*[@href = 'helpers/logout.php']",
+            BUSINESS_PAGE_HEADER = "//*[@class='item-description']//descendant::*[@class='item-description-headline main-page-title-side']",
+            HOME_BUTTON = "Home",
+            PRICING_BUTTON = "//*[@class='left-side']//descendant::*[@href = '/dashboard/pricing-plans']",
+            CONTACT_US_BUTTON = "Contact Us",
+            NOTIFICATION_BUTTON = "//*[@class='header-notifications-trigger']//descendant::*[@class='icon-feather-bell']",
+            NOTIFICATION_WINDOW = "//*[@class='header-notifications-dropdown']//descendant::*[@class='header-notifications-headline']",
+            PERSON_ICON = "//img[@src= 'images/user-avatar-placeholder.png']",
+            XPERTESY_LOGO = "//*[@class='left-side']//descendant::*[@href='index']";
 
 
     public boolean isUserAccOpened() {

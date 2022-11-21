@@ -5,7 +5,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -78,12 +80,12 @@ public class BasePage {
         }
     }
 
-    protected boolean sameValue(String xpath, String password) {
+    protected boolean sameValue(String xpath, String value) {
         try {
-            WebElement passwordElement = webDriver.findElement(By.xpath(xpath));
-            passwordElement.sendKeys(password);
-            String passValue = passwordElement.getAttribute("value");
-            assertEquals(password, passValue);
+            WebElement element = webDriver.findElement(By.xpath(xpath));
+          //  element.sendKeys(value);
+            String passValue = element.getAttribute("value");
+            assertEquals(value, passValue);
             return true;
         } catch (Exception e) {
             return false;
@@ -105,6 +107,17 @@ public class BasePage {
             clicked = false;
         }
         return clicked;
+    }
+
+    protected WebElement moveVolumeSlider(String xpath) {
+        WebElement slider = webDriver.findElement(By.xpath(xpath));
+        int width = slider.getSize().getWidth();
+        int x = 10;
+        Actions act = new Actions(webDriver);
+        act.moveToElement(slider, ((width * x) / 100), 0).click();
+        act.build().perform();
+        return slider;
+
     }
 
 }

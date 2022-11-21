@@ -1,6 +1,5 @@
 package PopUpWindows;
 
-import Constants.Const;
 import Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,13 +9,13 @@ import static Constants.Const.GET_STARTED_BUTTON;
 
 public class YourEmailAddressWindow extends BasePage {
 
-    private static final String YOUR_EMAIL_ADDRESS_HEADER = "//*[text()= 'Your email address']";
-    private static final String YOUR_EMAIL_ADDRESS_WINDOW_TAB_CONTENT = "//*[@class='popup-tab-content']";
-    private static final String EMAIL_INPUT = "//*[@name = 'emailaddress-start']";
-    private static final String CONTINUE_BUTTON = "//*[@class = 'button full-width button-sliding-icon']";
-    private static final String CLOSE_BUTTON = "//*[@class='sign-in-form']//descendant::*[@type='button']";
-    private static final String CONTINUE_WITH_GOOGLE_BUTTON = "//*[@class = 'google-login ripple-effect']";
-    private static final String ERROR_TEXT = "//head//ancestor::*[@type='text/css']";
+    private static final String YOUR_EMAIL_ADDRESS_HEADER = "//*[text()= 'Your email address']",
+            YOUR_EMAIL_ADDRESS_WINDOW_TAB_CONTENT = "//*[@class='popup-tab-content']",
+            EMAIL_INPUT = "//*[@name = 'emailaddress-start']",
+            CONTINUE_BUTTON = "//*[@class = 'button full-width button-sliding-icon']",
+            CLOSE_BUTTON = "//*[@class='sign-in-form']//descendant::*[@type='button']",
+            CONTINUE_WITH_GOOGLE_BUTTON = "//*[@class = 'google-login ripple-effect']",
+            ERROR_TEXT = "//head//ancestor::*[@type='text/css']";
 
 
     public boolean isYourEmailAddressWindowOpened() {

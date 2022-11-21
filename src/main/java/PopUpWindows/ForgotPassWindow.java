@@ -7,18 +7,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ForgotPassWindow extends BasePage {
 
-    private static final String SEND_BUTTON = "//*[@class= 'button full-width button-sliding-icon'] [@type='submit'] [@form='forgotpass-form']";
-    private static final String FORGOT_PASSWORD_HEADER = "//*[@class='popup-tab-content']//descendant::*[@class='welcome-text']";
-    private static final String FORGOT_PASSWORD_TEXT = "//*[@class='welcome-text']//descendant::*[text()='Forgot Password?']";
-    private static final String ALMOST_THERE_NOTIFICATION = "//*[@class='success-modal']//descendant::*[@class='mt-5 pl-4 pr-4 text-center']";
-    private static final String ALMOST_THERE_HEADER = "//*[@class='mfp-content']//descendant::*[@id='sign-in-dialog']";
-    private static final String ALMOST_THERE_NOTIFICATION_CLOSE_BUTTON = "//*[@title='Close (Esc)'] [@type='button'] [@class='close-success mfp-close']";
-    private static final String BACK_LOGIN_BUTTON = "//*[@id ='backtologin'] [@class='forgot-password auth-bottom']";
+    private static final String
+            SEND_BUTTON = "//*[@class= 'button full-width button-sliding-icon'] [@type='submit'] [@form='forgotpass-form']",
+            FORGOT_PASSWORD_HEADER = "//*[@class='popup-tab-content']//descendant::*[@class='welcome-text']",
+            FORGOT_PASSWORD_TEXT = "//*[@class='welcome-text']//descendant::*[text()='Forgot Password?']",
+            ALMOST_THERE_NOTIFICATION = "//*[@class='success-modal']//descendant::*[@class='mt-5 pl-4 pr-4 text-center']",
+            ALMOST_THERE_HEADER = "//*[@class='mfp-content']//descendant::*[@id='sign-in-dialog']",
+            ALMOST_THERE_NOTIFICATION_CLOSE_BUTTON = "//*[@title='Close (Esc)'] [@type='button'] [@class='close-success mfp-close']",
+            BACK_LOGIN_BUTTON = "//*[@id ='backtologin'] [@class='forgot-password auth-bottom']";
 
     public boolean isForgotPasswordWindowOpened() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(FORGOT_PASSWORD_TEXT)));
         return elementExist(FORGOT_PASSWORD_HEADER);
-
     }
 
     public void clickOnSendButton() {
